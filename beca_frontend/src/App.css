@@ -1,0 +1,159 @@
+.app-container {
+  font-family: Arial, sans-serif;
+  max-width: 37.5rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  background-color: #f0f0f0;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 0.0625rem solid #ccc;
+  padding: 1.6rem;
+  margin-bottom: 1.6rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.data{
+  width: 75%;
+}
+
+.profile-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 0.3125rem 1.6rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  height: 2rem;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
+}
+
+.popUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.popUp-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 16px;
+}
+
+.warning{
+  font-weight: bold;
+  text-align: center;
+}
+
+.create-button {
+  background-color: #3575dc;
+  color: #fff;
+  border: none;
+  padding: 0.3125rem 1.6rem;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  height: 2rem;
+}
+
+.create-button:hover {
+  background-color: #1e5fc7;
+  transform: scale(1.1);
+}
+
+.formData{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.campo{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.buttons-form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.noProfiles{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.yesProfile{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.bg-popup{
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%); /* Ajusta la posición según el tamaño del popup */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.create-popup {
+  background-color: #f0f0f0;
+  width: fit-content;
+  height: fit-content;
+  padding: 2rem;
+}
