@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { getAllProfiles, deleteProfile, createUser } from './api';
-import './App.css'; // Archivo CSS para los estilos
+import './App.css';
 
 function App() {
-  const [profiles, setProfiles] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [showCreate, setShowCreate] = useState(false);
+  const [profiles, setProfiles] = useState([]); // Almacena los resgitros que llegan del backend
+  const [loading, setLoading] = useState(true); // Decide si el loader se debe mostrar o no
+  const [error, setError] = useState(null); // Almmacena el mensaje de error que pueda llegar desde el backend
+  const [showCreate, setShowCreate] = useState(false); // Decide si el popup para la creación de un nuevo perfil debe mostrarse o no
   const [newUserData, setNewUserData] = useState({
     nombre: '',
     apellidos: '',
     curso: '',
     anoIngreso: '',
     notaMedia: '',
-  });
+  }); // Almacena el nuevo usuario creado
 
+  // Función que lee todos los perfiles existentes y los almacena en profiles
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -27,6 +28,7 @@ function App() {
     }
   };
 
+  // Función que elimina el perfil con el id pasado como argumento
   const handleDelete = async (id) => {
     try {
       setLoading(true);
@@ -40,6 +42,7 @@ function App() {
     }
   };
 
+  // Función que almacena en newUserData el usuario nuevo a crear
   const handleCreate = async () => {
     try {
       setLoading(true);
@@ -59,22 +62,30 @@ function App() {
     }
   };
 
+  /* Al iniciar la aplicación deben mostrarse los perfiles existentes,
+  para lo cual debemos traerlos de la base de datos */
   useEffect(() => {
     fetchData();
   }, []);
 
+  // Cierra el popup que muestra los errores
   const closeErrorPopup = () => {
     setError(null);
   };
 
+  // Abre el popup para crear un perfil
   const openCreatePopup = () => {
     setShowCreate(true);
   };
 
+  // Cierra el popup para crear un perfil
   const closeCreatePopup = () => {
     setShowCreate(false);
   };
 
+  /* Almacena en newUserData el valor de cada input del 
+  formulario de creación de un nuevo perfil en el 
+  campo correspondiente de newUserData */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewUserData(prevData => ({
@@ -83,20 +94,25 @@ function App() {
     }));
   };
 
+  // Código HTML
   return (
     <div className="app-container">
+      {/*LOADER*/}
       {loading && <p>Cargando...</p>}
+      {/*SI NO HAY PERFILES*/}
       {profiles.length === 0 && (
         <div className="noProfiles">
           <p className="warning">No hay registros</p>
           <button className="create-button" onClick={openCreatePopup}>Crear Usuario</button>
         </div>
       )}
+      {/*SI HAY PERFILES*/}
       {profiles.length > 0 && (
         <>
           <div className="yesProfile">
             <button className="create-button" onClick={openCreatePopup}>Crear Usuario</button>
           </div>
+          {/*LISTA DE PERFILES*/}
           {profiles.map(profile => (
             <div key={profile.id} className="profile-card">
               <div className="data">
@@ -112,7 +128,7 @@ function App() {
       )}
 
 
-      {/* Popup para crear usuario */}
+      {/* POPUP PARA CREAR USUARIOS */}
       {showCreate && (
         <div className="bg-popup">
           <div className="create-popup">
@@ -162,7 +178,7 @@ function App() {
         </div>
       )}
 
-      {/* Popup de error */}
+      {/* POPUP DE ERROR */}
       {error && (
         <div className="popUp">
           <div className="popUp-content">
