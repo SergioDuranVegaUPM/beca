@@ -6,6 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
+/*
+Clase UsuarioDto : es el objeto que se transferirá entre el cliente y la API
+*/
+
 @Data
 @ToString
 @Builder

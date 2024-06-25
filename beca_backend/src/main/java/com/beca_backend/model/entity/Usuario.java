@@ -14,6 +14,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/* 
+Clase Usuario : simula la entidad del usuario de la base de datos
+*/
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
